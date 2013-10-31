@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    page = params[:page] ? params[:page] : 1
-    @products = Product.order("name").paginate(:page => page, :per_page => 3)
+    @products = Product.paginate(:page => params[:page], :per_page => 3)
   end
   
   def show
